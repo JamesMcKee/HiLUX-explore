@@ -1,10 +1,10 @@
-# HiLUX-explore
+# HiLUX Ion Imaging Data Explorer
 
 By James McKee  
 https://github.com/JamesMcKee 
 September 2025
 
-This Python script processes and visualises data from a velocity map ion imaging experiment using the HiLUX dataset. It reads multiple HDF5 files, extracts key ion detection parameters, and generates plots to support analysis of molecular fragmentation and spatial ion distributions.
+This Python script processes and visualises data from a velocity map ion imaging experiment using the HiLUX dataset. It reads multiple HDF5 files, extracts ion detection parameters, and generates plots to support analysis of molecular fragmentation and spatial ion distributions.
 
 ## Features
 
@@ -31,6 +31,11 @@ This script requires the following Python packages:
 - `argparse` (standard library)
 
 These are listed in the requirements.txt file, install with: pip install -r requirements.txt
+
+
+## Example Dataset
+
+A test dataset is included in the `aq387` directory. It contains subdirectories with `.h5` files structured for use with this script. You can use this folder to verify functionality and explore the plotting options.
 
 
 ## Usage
