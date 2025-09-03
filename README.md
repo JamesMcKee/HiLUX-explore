@@ -23,12 +23,11 @@ This Python script processes and visualises data from a velocity map ion imaging
 
 ## Dependencies
 
-This script requires the following Python packages:
+This script requires the following (non-standard) Python packages:
 
 - `numpy`
 - `matplotlib`
 - `h5py`
-- `argparse` (standard library)
 
 These are listed in the requirements.txt file, install with: pip install -r requirements.txt
 
