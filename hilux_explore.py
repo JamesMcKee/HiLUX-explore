@@ -15,7 +15,7 @@ def tof_to_mz(tof_ns, a, b):
 
 # used for letting a user supply their own ToF ranges (in nanoseconds)
 def parse_range(range_str):
-    # Remove brackets and split by comma
+    # remove brackets and split by comma
     range_str = range_str.strip("()")
     start, end = map(int, range_str.split(","))
     return (start, end)
@@ -78,7 +78,7 @@ def main():
 		figures = []  # use this list to save figures later
 		data_dir = args.directory
 
-		# lists to record the time-of-flight, x, y values
+		# lists to record the time of flight, x, y values
 		tof_values = []
 		x_values = []
 		y_values = []
@@ -107,7 +107,7 @@ def main():
 		plt.hist(tof_values, bins=500, histtype="step", color="blue")
 		plt.xlabel("Time of Flight (ns)")
 		plt.ylabel("Counts")
-		plt.title("Time-of-Flight Spectrum")
+		plt.title("Time of Flight Spectrum")
 		plt.grid(True)
 		figures.append(fig) # add to the figures list for saving later
 		if args.show:
@@ -186,3 +186,4 @@ def main():
 if __name__ == "__main__":
 
 	main()
+
