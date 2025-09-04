@@ -15,7 +15,7 @@ def tof_to_mz(tof_ns, a, b):
 
 # used for letting a user supply their own ToF ranges (in nanoseconds)
 def parse_range(range_str):
-    # Remove parentheses and split by comma
+    # Remove brackets and split by comma
     range_str = range_str.strip("()")
     start, end = map(int, range_str.split(","))
     return (start, end)
@@ -52,7 +52,7 @@ def main():
 	args = parser.parse_args()
 
 	if args.ranges:
-		# dynamically build TOF ranges with labels A, B, C, and so on...
+		# dynamically build ToF ranges with labels A, B, C, and so on...
 		labels = [chr(65 + i) for i in range(len(args.ranges))]  # e.g. called A, B, C, etc.
 
 		tof_ranges = {
@@ -118,13 +118,13 @@ def main():
 		# Reference peaks used for calibration: 
 		# 12000 ns corresponds to C6H6I+ (m/z = 204), 
 		# 6100 ns corresponds to H2O+ (m/z = 18)
-		# These are used to fit the nonlinear relation between ToF and m/z
+		# These are used to fit the (nonlinear) relation between ToF and m/z
 		tof_ref = np.array([12000.0, 6100.0])  # in nanoseconds
 		mz_ref  = np.array([204.0, 18.0])      # in atomic units
 
 		sqrt_mz = np.sqrt(mz_ref)
 
-		# fit a linear relation i.e. sqrt(m/z) = a*ToF + b
+		# fit a linear relation sqrt(m/z) = a*ToF + b
 		coeffs = np.polyfit(tof_ref, sqrt_mz, 1)
 		a, b = coeffs
 		print(f"Calibration coefficients: a = {a}, b = {b}")
@@ -184,4 +184,5 @@ def main():
 		print(f"Invalid directory: {args.directory}")
 
 if __name__ == "__main__":
+
 	main()
